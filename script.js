@@ -1,5 +1,7 @@
 function getFormvalue(event) {
-    event.preventDefault(); // Prevent default form submission
+    if (event) {
+        event.preventDefault(); // Prevent default form submission
+    }
     
     // Retrieve input values
     let firstName = document.querySelector("input[name='fname']").value.trim();
@@ -18,5 +20,8 @@ function getFormvalue(event) {
 
 document.addEventListener("DOMContentLoaded", function () {
     // Attach event listener to form
-    document.getElementById("form1").addEventListener("submit", getFormvalue);
+    const form = document.getElementById("form1");
+    if (form) {
+        form.addEventListener("submit", getFormvalue);
+    }
 });
